@@ -1,19 +1,30 @@
 class Foobar
 
-  def self.baz(a)
+
+ def self.baz(a)
     # Class method
     # Call with `Foobar.baz`
-  end
+    i = 0
+    require 'set'
+    numSet = Set.new []
+    sum = 0
+    while i < a.length
+      a[i] = Integer(a[i])
+      a[i] += 2
+      if a[i] % 2 != 0
+        a.delete_at(i)
 
-  def foo(b)
-    # Instance method
-    # Call with foobar_instance.foo
-  end
-
-  def bar(c)
-    # Instance method
-    # Call with foobar_instance.bar
-  end
+        else
+          if a[i] > 10 or numSet.include?(a[i])
+            a.delete_at(i)
+          else
+            numSet.add(a[i])
+            sum += a[i]
+          end
+          i += 1
+      end
+    end
+   return sum
+ end
 end
-
 
